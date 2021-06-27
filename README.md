@@ -7,12 +7,13 @@
 
 ## Binary search (Recherche dichotomique)
 
-Retourne la position d'un élément dans un tableau trié. Si l'élément n'existe pas, retourne -(insertion-point + 1), où insertion-point représente l'index où l'élément devrait être inséré.
+Retourne la position d'un élément dans un tableau **trié**.
+
+Si l'élément n'existe pas, retourne une valeur négative (-1).\
+En java, retourne -(insertion-point + 1), où insertion-point représente l'index où l'élément devrait être inséré.
 
 
 Complexité : O(log n)
-
-
 ```java
 <T extends Comparable<? super T>> int binarySearch(T[] array, T item) {
     int low = 0;
@@ -33,6 +34,16 @@ Complexité : O(log n)
     return -(low + 1);
 }
 ```
+Exemples
+```
+{2, 3, 5, 7, 9},  0 = -1
+{2, 3, 5, 7, 9},  4 = -3
+{2, 3, 5, 7, 9},  8 = -5
+{2, 3, 5, 7, 9},  2 = 0
+{2, 3, 5, 7, 9},  7 = 3
+{2, 3, 5, 7, 9},  9 = 4
+{2, 3, 5, 7, 9},  10 = -6
+```
 
 **NB**
-* `Comparable<? super T>` indique que T est comparable avec tout objet dont la classe est un ancêtre de T. Eg, `Foo implements Comparable<Object>` indique que Foo est comparable avec n'importe quel objet.
+* `Comparable<? super T>` indique que T est comparable avec tout objet dont la classe est un ancêtre de T. Eg, si `Foo implements Comparable<Object>` (Foo est comparable avec n'importe quel objet).
