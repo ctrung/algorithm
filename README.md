@@ -1,7 +1,8 @@
 # algorithm
 
-TOC
+**TOC**
 
+* [Binary search (Recherche dichotomique)](https://github.com/ctrung/algorithm/blob/main/README.md#binary-search-recherche-dichotomique)
 
 
 ## Binary search (Recherche dichotomique)
@@ -33,5 +34,5 @@ Complexité : O(log n)
 }
 ```
 
-NB :
-* Comparable<? super T> indique que T est comparable avec tout objet dont la classe est un ancêtre de T. Eg, Foo implements Comparable<Object> indique que Foo est comparable avec n'importe quel objet.
+**NB**
+* `Comparable<? super T>` indique que T est comparable avec tout objet dont la classe est un ancêtre de T. Eg, `Foo implements Comparable<Object>` indique que Foo est comparable avec n'importe quel objet.
