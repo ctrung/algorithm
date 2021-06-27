@@ -2,8 +2,8 @@
 
 **TOC**
 
-* [Binary search (Recherche dichotomique)](https://github.com/ctrung/algorithm/blob/main/README.md#binary-search-recherche-dichotomique)
-
+* [Binary search (Recherche dichotomique)](#binary-search-recherche-dichotomique)
+* [Selection sort (Tri par sélection)](#selection-sort-tri-par-sélection)
 
 ## Binary search (Recherche dichotomique)
 
@@ -47,3 +47,39 @@ Exemples
 
 **NB**
 * `Comparable<? super T>` indique que T est comparable avec tout objet dont la classe est un ancêtre de T. Eg, si `Foo implements Comparable<Object>` (Foo est comparable avec n'importe quel objet).
+
+
+# Selection sort (Tri par sélection)
+
+A chaque passe, on cherche le plus petit élément et on le met dans un nouveau tableau.\
+A la fin, le nouveau tableau contient les éléments classés dans l'ordre croissant.
+
+Complexité : O(n2)
+
+```java
+<T extends Comparable<? super T>> T[] selectionSort(T[] array) {
+    for (int i = 0; i < array.length; i++) {
+        int smallerIndex = i;
+        // cette boucle pour chercher le plus petit élément dans le reste du tableau
+        for (int j = i; j < array.length - 1; j++) {
+            if (array[j + 1].compareTo(array[smallerIndex]) < 0) {
+                smallerIndex = j + 1;
+            }
+        }
+        // on intervertit
+        T temp = array[i];
+        array[i] = array[smallerIndex];
+        array[smallerIndex] = temp;
+    }
+    return array;
+}
+```
+Exemples
+```
+{2, 3, 5, 7, 9} = {2, 3, 5, 7, 9}
+{5} = {5}
+{} = {}
+```
+
+**NB**
+* L'implémentation ci dessus effectie le tri sur place au lieu d'instancier un nouveau tableau.
